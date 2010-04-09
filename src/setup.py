@@ -8,7 +8,7 @@ import sys
 
 # default settings
 library_dirs_list= []
-libraries_list = ['lapack', 'blas']
+libraries_list = ['lapack', 'blas', 'gfortran']
 superlu_defs = [('USE_VENDOR_BLAS',1)]
 if sys.platform == 'win32':
     superlu_defs += [('NO_TIMER', 1)]
@@ -117,7 +117,7 @@ elif sys.platform == 'linux2':
     if 'redhat-release' in os.listdir('/etc'):
         f = open('/etc/redhat-release', 'r')
         if 'release 4' in f.read():
-            libraries_list = ['lapack', 'blas']
+            libraries_list = ['lapack', 'blas', 'g2c']
         f.close()
 
 from distutils.core import Command
